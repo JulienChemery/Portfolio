@@ -1,0 +1,51 @@
+Copyright (c) 2026 Julien Chémery. All rights reserved.
+
+This NOTICE defines the scope of the licence in LICENSE. Read the two together.
+LICENSE is the unmodified Creative Commons Attribution-NonCommercial 4.0
+International licence text; nothing here alters it, and it is kept separate so
+that automated tooling can identify the licence correctly.
+
+
+WHAT IS LICENSED
+================
+
+THE CODE in this repository is licensed under CC BY-NC 4.0. In short:
+
+  You MAY      view it, fork it, study it, and build on it, for personal,
+               educational or other non-commercial purposes, provided you give
+               appropriate credit to Julien Chémery with a link back to
+               https://github.com/JulienChemery/Portfolio and indicate whether
+               you changed anything.
+
+  You MAY NOT  use it commercially in any form. That includes selling it,
+               selling a derivative of it, redistributing it as a paid or free
+               template or theme, or using it in client or commercial work.
+
+  You MAY NOT  use it without that credit.
+
+
+WHAT IS NOT LICENSED
+====================
+
+THE CONTENT is excluded from the licence in LICENSE. No permission of any kind
+is granted for it. CC BY-NC 4.0 requires a licensor to clearly mark material not
+subject to the licence, and this is that marking:
+
+  - the photographs in public/assets/img/photography/
+  - the portrait in public/assets/img/brand/
+  - the signature mark, and the favicon, app icon and link-preview card
+    derived from it
+  - the project imagery and renders in public/assets/img/projects/
+  - the resume PDF in public/assets/
+  - the written copy of the site: the biography, the project write-ups and
+    the statement text
+
+All of the above are © Julien Chémery, all rights reserved.
+
+THE THIRD-PARTY MARKS in public/assets/img/logos/ are the trade marks of their
+respective owners. They appear here only to identify the institutions concerned,
+are not covered by any licence granted here, and are not licensed for reuse.
+
+
+If you want to reuse this work in a way the licence does not permit, ask:
+julien.chemery@gmail.com

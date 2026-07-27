@@ -1,0 +1,312 @@
+/* ==========================================================================
+   Trading Agent — terminal thumbnails
+   Transcribed from _originals/trading-thumbnails/*.html.
+
+   This is a self-contained visual: a trading terminal has its own palette and
+   its own mono voice, and none of it should leak into the portfolio's design
+   system or pick anything up from it. Hence the tt- prefix on every class and
+   the local custom properties below — the source files used bare .card, .row
+   and .price, which would have collided head-on with styles.css.
+
+   Everything is authored at 640 x 400 (plus a 20px caption) and scaled by
+   --tt-scale, so the internal type and spacing stay in proportion at any size.
+   ========================================================================== */
+
+.tt {
+  --tt-w: 640px;
+  --tt-h: 420px;
+  --tt-scale: 0.72;
+
+  --tt-card: #0b0f14;
+  --tt-panel-chart: #0d1219;
+  --tt-panel-news: #0a0e13;
+  --tt-border: #1c2531;
+  --tt-border-soft: rgba(232, 238, 243, 0.07);
+  --tt-text: #e9eef3;
+  --tt-text-dim: #8592a0;
+  --tt-text-faint: #4b5560;
+  --tt-amber: #e8a33d;
+  --tt-amber-soft: rgba(232, 163, 61, 0.35);
+  --tt-bull: #3ecf8e;
+  --tt-bull-soft: rgba(62, 207, 142, 0.16);
+  --tt-bear: #f0654f;
+  --tt-bear-soft: rgba(240, 101, 79, 0.16);
+  --tt-glow: #ffd27a;
+  --tt-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', 'Roboto Mono', Menlo,
+    Consolas, monospace;
+
+  flex: none;
+  margin: 0;
+  width: calc(var(--tt-w) * var(--tt-scale));
+  height: calc(var(--tt-h) * var(--tt-scale));
+}
+
+.tt__inner {
+  width: var(--tt-w);
+  height: var(--tt-h);
+  transform: scale(var(--tt-scale));
+  transform-origin: 0 0;
+  font-family: var(--tt-mono);
+  color: var(--tt-text);
+}
+
+/* No bloom behind the card. The source files had an amber/green one, but a
+   marquee puts several of these side by side on the page's own background,
+   where the halos overlap and read as smudge rather than depth. */
+.tt__stage { position: relative; }
+
+.tt__card {
+  position: relative;
+  z-index: 1;
+  width: var(--tt-w);
+  height: 400px;
+  background: var(--tt-card);
+  border: 1px solid var(--tt-border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- top: quant panel ---------- */
+
+.tt__quant {
+  position: relative;
+  flex: 0 0 55%;
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(232, 163, 61, 0.06), transparent 55%),
+    var(--tt-panel-chart);
+  border-bottom: 1px solid var(--tt-border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.tt__quant-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 14px 16px 4px;
+  gap: 12px;
+}
+
+.tt__ticker-block {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tt__symbol { font-size: 20px; font-weight: 700; }
+
+.tt__price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--tt-amber);
+  font-variant-numeric: tabular-nums;
+}
+
+.tt__delta {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tt-bear);
+  font-variant-numeric: tabular-nums;
+}
+.tt__delta--up { color: var(--tt-bull); }
+
+.tt__head-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.tt__tf {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--tt-text-faint);
+  text-transform: uppercase;
+}
+
+.tt__target {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--tt-bull);
+  font-variant-numeric: tabular-nums;
+}
+
+.tt__upside {
+  font-size: 11px;
+  color: var(--tt-text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.tt__chart {
+  flex: 1;
+  padding: 2px 12px 6px;
+  min-height: 0;
+}
+.tt__chart svg { display: block; width: 100%; height: 100%; }
+
+/* ---------- seam ---------- */
+
+.tt__seam {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--tt-amber-soft) 45%,
+    var(--tt-amber-soft) 55%,
+    transparent
+  );
+}
+
+/* ---------- bottom: news panel ---------- */
+
+.tt__news {
+  flex: 1;
+  background: var(--tt-panel-news);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  padding: 6px 0;
+}
+
+.tt__chrome {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 5px;
+  font-size: 12px;
+  color: var(--tt-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.tt__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.tt__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border-left: 2px solid transparent;
+}
+
+.tt__headline {
+  font-size: 13px;
+  color: var(--tt-text-dim);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tt__row--hot-bull {
+  background: var(--tt-bull-soft);
+  border-left-color: var(--tt-bull);
+}
+.tt__row--hot-bear {
+  background: var(--tt-bear-soft);
+  border-left-color: var(--tt-bear);
+}
+.tt__row--hot-bull .tt__headline,
+.tt__row--hot-bear .tt__headline {
+  color: var(--tt-text);
+  font-weight: 500;
+}
+
+.tt__pill {
+  flex: 0 0 auto;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tt__pill--bull { background: var(--tt-bull-soft); color: var(--tt-bull); }
+.tt__pill--value { background: var(--tt-amber-soft); color: var(--tt-amber); }
+.tt__pill--bear { background: var(--tt-bear-soft); color: var(--tt-bear); }
+
+/* Where the beam lands. */
+.tt__node {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tt-glow);
+  box-shadow: 0 0 8px 2px var(--tt-glow);
+}
+
+.tt__synthesis {
+  margin: 5px 16px 0;
+  padding-top: 7px;
+  border-top: 1px solid var(--tt-border-soft);
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.tt__score { font-weight: 700; }
+.tt__score--bull { color: var(--tt-bull); }
+.tt__score--amber { color: var(--tt-amber); }
+.tt__bias { color: var(--tt-text-dim); }
+
+/* ---------- beam overlay ---------- */
+
+.tt__beam-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tt__beam {
+  stroke-width: 1.4;
+  fill: none;
+  stroke-dasharray: 2 4;
+  animation: tt-dash 5s linear infinite;
+}
+
+@keyframes tt-dash {
+  to { stroke-dashoffset: -120; }
+}
+
+.tt__caption {
+  position: absolute;
+  bottom: -20px;
+  right: 2px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--tt-text-faint);
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+/* The card holds its authored proportions, so the whole thing shrinks as one
+   piece rather than reflowing. Below 780px it is the full width of the
+   gutter-to-gutter column. */
+@media (max-width: 960px) {
+  .tt { --tt-scale: 0.62; }
+}
+
+@media (max-width: 780px) {
+  .tt { --tt-scale: 0.5; }
+}
+
+@media (max-width: 480px) {
+  .tt { --tt-scale: 0.42; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tt__beam { animation: none; }
+}

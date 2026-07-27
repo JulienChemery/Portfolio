@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julien Chémery — Agentic AI / Generative AI Engineer &amp; Consultant</title>
+<meta name="description" content="I design and build multi-agent workflows and LLM orchestration to take AI from proof-of-concept to full-scale production.">
+<meta name="theme-color" content="#08090a">
+
+<link rel="canonical" href="https://julienchemery.github.io/Portfolio/">
+
+<!-- og:url and og:image must be absolute: scrapers (LinkedIn, Slack, X) do not
+     resolve root-relative paths. Vite would rewrite a "/assets/…" value to the
+     deploy base, which is still not a URL they can fetch. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://julienchemery.github.io/Portfolio/">
+<meta property="og:title" content="Julien Chémery — Agentic AI / Generative AI Engineer">
+<meta property="og:description" content="I design and build multi-agent workflows and LLM orchestration to take AI from proof-of-concept to full-scale production.">
+<!-- A purpose-built 1200x630 card, not the hero portrait. The portrait is
+     served raw here: none of the hero's vignette or fades are baked into the
+     file, they are CSS over the top, so a scraper only ever got the bare
+     photograph. The mark is centred so the square crop some messaging apps
+     apply to thumbnails still holds it. -->
+<meta property="og:image" content="https://julienchemery.github.io/Portfolio/assets/img/brand/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Julien Chémery's signature mark">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://julienchemery.github.io/Portfolio/assets/img/brand/og-card.png">
+
+<!-- ?v= is a cache buster, and it is load-bearing. These live in public/ so Vite
+     does not content-hash their names, and browsers cache a favicon by URL far
+     more stubbornly than other assets — a reload, even a hard one, will keep
+     serving the old icon. Bump the number whenever the artwork changes. -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/brand/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/brand/favicon-16.png?v=2">
+<!-- Bookmark tiles and high-DPI surfaces pick the largest icon offered. -->
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/img/brand/favicon-512.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/brand/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&amp;display=swap">
+</head>
+<body>
+<!-- The skip link lives outside #root so it is reachable on the very first tab
+     press, before React has hydrated the page behind it. -->
+<a class="skip-link" href="#work">Skip to work</a>
+<div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

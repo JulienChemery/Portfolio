@@ -1,0 +1,23 @@
+.DS_Store
+
+# Build output and dependencies
+node_modules/
+dist/
+
+# Raw design export and image masters — not served
+AI Engineering Portfolio Design/
+_originals/
+
+# Snapshots of previous states of the site
+_archive/
+
+# Local Claude Code setup: hooks, settings, and vendored third-party skills.
+# Not part of the site, and the skills belong to their upstream authors.
+.claude/
+skills-lock.json
+
+# Screenshot tool leftovers from an output path that resolved to "undefined"
+undefined/
+
+# Project instructions for Claude Code, kept local
+CLAUDE.md

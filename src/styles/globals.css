@@ -1,0 +1,37 @@
+/* Tailwind first, the hand-written design system second.
+   Order is load-bearing: Tailwind v4's preflight resets margins, list styles
+   and image sizing, and styles.css re-establishes the portfolio's own values on
+   top of it. Flipping these two imports would let preflight win and flatten the
+   layout. Utility classes still beat both — utilities live in a later cascade
+   layer than the unlayered rules in styles.css. */
+@import 'tailwindcss';
+@import './styles.css';
+/* Self-contained: its own palette, its own prefix, nothing shared either way.
+   See the header of the file. */
+@import './trading-thumbnail.css';
+
+/* Tailwind's dark-mode variant follows the design, which is dark-only. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Expose the existing design tokens to Tailwind so new components can write
+   text-ink-3 or bg-surface-2 instead of hard-coding hexes that would drift out
+   of sync with :root in styles.css. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-ink-5: var(--ink-5);
+  --color-ink-6: var(--ink-6);
+
+  --font-sans: var(--font);
+  --font-display: var(--font-display);
+
+  --radius-card: var(--radius);
+}
